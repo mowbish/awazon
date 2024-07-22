@@ -1,5 +1,3 @@
-from django.conf import settings
-from drf_spectacular.contrib.rest_framework_simplejwt import SimpleJWTScheme
 from drf_spectacular.generators import EndpointEnumerator, SchemaGenerator
 from drf_spectacular.openapi import AutoSchema
 

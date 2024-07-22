@@ -5,15 +5,15 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 urlpatterns = [
     path("admin/", admin.site.urls),
     path(
-        f"api/v1/schema/",
+        "api/v1/schema/",
         SpectacularAPIView.as_view(),
         name="schema-v1",
     ),
     path(
-        f"",
+        "",
         SpectacularSwaggerView.as_view(url_name="schema-v1"),
         name="swagger-ui-v1",
     ),
-    path(f"api/v1/", include("config.routers")),
+    path("api/v1/", include("config.routers")),
 
 ]
