@@ -1,21 +1,3 @@
-### Directory Structure
-
-```plaintext
-.
-├───apps
-│   ├───core
-│   │   └───migrations
-│   ├───products
-│   │   ├───api
-│   │   │   └───v1
-│   │   └───migrations
-│   └───users
-│   │   ├───api
-│   │   │   └───v1
-│   │   └───migrations
-└───config
-```
-
 # 🛍️ **Awazon Product API**
 
 Welcome to the Awazon Product API! This project is a Django application designed to scrape and manage product information from Amazon. It utilizes Docker for containerization and deployment.
@@ -179,4 +161,22 @@ You can run the tests using the following command:
 
 ```bash
 docker-compose exec web python manage.py test
+```
+
+### Directory Structure
+
+```plaintext
+.
+├───apps
+│   ├───core
+│   │   └───migrations
+│   ├───products
+│   │   ├───api
+│   │   │   └───v1
+│   │   └───migrations
+│   └───users
+│   │   ├───api
+│   │   │   └───v1
+│   │   └───migrations
+└───config
 ```
