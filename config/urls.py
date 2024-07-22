@@ -15,5 +15,4 @@ urlpatterns = [
         name="swagger-ui-v1",
     ),
     path("api/v1/", include("config.routers")),
-
 ]

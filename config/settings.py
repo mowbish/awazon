@@ -5,11 +5,11 @@ from decouple import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = config('SECRET_KEY', default='your_secret_key')
+SECRET_KEY = config("SECRET_KEY", default="your_secret_key")
 
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = config("DEBUG", default=False, cast=bool)
 
-ALLOWED_HOSTS = config('DJANGO_ALLOWED_HOSTS', default='').split(' ')
+ALLOWED_HOSTS = config("DJANGO_ALLOWED_HOSTS", default="").split(" ")
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -18,20 +18,17 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-
     # local apps
     "apps.core.apps.CoreConfig",
     "apps.products.apps.ProductsConfig",
     "apps.users.apps.UsersConfig",
-
     # third party apps
     "corsheaders",
     "rest_framework",
     "django_extensions",
     "drf_spectacular",
     "drf_spectacular_sidecar",
-    "rest_framework_simplejwt"
-
+    "rest_framework_simplejwt",
 ]
 
 MIDDLEWARE = [
@@ -68,9 +65,9 @@ WSGI_APPLICATION = "config.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": config('POSTGRES_DB', default='your_secret_key'),
-        "USER": config('POSTGRES_USER', default='your_secret_key'),
-        "PASSWORD": config('POSTGRES_PASSWORD', default='your_secret_key'),
+        "NAME": config("POSTGRES_DB", default="your_secret_key"),
+        "USER": config("POSTGRES_USER", default="your_secret_key"),
+        "PASSWORD": config("POSTGRES_PASSWORD", default="your_secret_key"),
         "HOST": "awazon_database",
         "PORT": "5432",
     }
@@ -108,8 +105,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = "/static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

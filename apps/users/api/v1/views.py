@@ -12,16 +12,19 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes_by_action = {
-        'create': (AllowAny,),
-        'retrieve': (IsAdminUser,),
-        'list': (IsAdminUser,),
-        'update': (IsAdminUser,),
-        'destroy': (IsAdminUser,),
+        "create": (AllowAny,),
+        "retrieve": (IsAdminUser,),
+        "list": (IsAdminUser,),
+        "update": (IsAdminUser,),
+        "destroy": (IsAdminUser,),
     }
 
     def get_permissions(self):
         try:
-            return [permission() for permission in self.permission_classes_by_action[self.action]]
+            return [
+                permission()
+                for permission in self.permission_classes_by_action[self.action]
+            ]
         except KeyError:
             return [permission() for permission in self.permission_classes]
 
@@ -29,7 +32,7 @@ class UserViewSet(viewsets.ModelViewSet):
         serializer = self.get_serializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
             user = serializer.save()
-            data = {'user_id': str(user.id), 'username': user.username}
+            data = {"user_id": str(user.id), "username": user.username}
             return Response(data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
@@ -46,9 +49,9 @@ class UserViewSet(viewsets.ModelViewSet):
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    @action(detail=False, methods=['get', 'put'], name='Get/Update My Profile')
+    @action(detail=False, methods=["get", "put"], name="Get/Update My Profile")
     def profile(self, request, *args, **kwargs):
-        if request.method == 'GET':
+        if request.method == "GET":
             return self.me(request, *args, **kwargs)
-        elif request.method == 'PUT':
+        elif request.method == "PUT":
             return self.update_me(request, *args, **kwargs)
